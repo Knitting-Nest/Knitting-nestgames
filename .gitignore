@@ -1,129 +1,41 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
+import random
+name=input("Enter your name: ")
+print("Good luck "+name+" please write your answers in small letters.")
+words=["paper","goods","purple","sky","greeks","songs","school","math","robin","kingfisher","trees",
+"orange","mango","banana","apple","window","zebra","parrot","water","computer","characters","tiger",
+"lions","coconut","lime","plays","tomorrow","scale","puppet","dogs","lovely","beautiful","girls","boys"
+,"tomato","sugar","salt","chocolate","sweet","pineapple","door","pets","cats","leaves","queen","kings",
+"carts","silk","market","mouth","eyes","nose","balls","earth","magnet","seas","baby","rock","grandmother"
+,"grandfather","grand","bells","christmas","presents","kangaroo","koala","zoo","one","two","three","four"
+,"five","six","seven","eight","nine","zero","hero","fun","time","lunch","ice","cream","dance","wine",
+"gas","sides","cheese","french","chips","burger","sandwich","bath","bank","motorcycle","bike","cycle","body"
+,"bowl","basket","bow","drums","eat","ate","hair""buses","shirt","book","study","loose","cupboard","board"
+,"type","piano","violin","pepper","sand","socks","shoes","questions","answers","mouse","keys","black","name"
+,"fix","fox","bears","frame","farm","field","fire","scouts","guides","ruler","asia","snakes","ladders","cube"
+,"loyal","leader","hot","cold","dress","skirt","pant","test","text","strings","pot","glass","can","prime"
+,"right","wrong"]
+choose=random.choice(words)
+print("Guess the characters:")
+guesses=' '
+turns=15
+while turns>0:
+    failed=0
+    for x in choose:
+        if x in guesses:
+            print(x)
+        else:
+            print("_")
+            failed+=1
+    if failed==0:
+        print(name+" you win!!")
+        print("The word is "+choose)
+        break
+    guess=input("Guess the characters:")
+    guesses+=guess
+    if guess not in choose:
+        turns-=1
+        print("Wrong!")
+        print("You have ",turns," more guesses")
+        if turns==0:
+            print("You loose!!!")
+            print("The word is " + choose)
